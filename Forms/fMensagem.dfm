@@ -3,7 +3,7 @@ object frmMensagem: TfrmMensagem
   Top = 0
   BorderIcons = []
   BorderStyle = bsNone
-  ClientHeight = 333
+  ClientHeight = 320
   ClientWidth = 380
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,26 +18,23 @@ object frmMensagem: TfrmMensagem
     Left = 0
     Top = 0
     Width = 380
-    Height = 333
+    Height = 320
     Align = alClient
     BevelKind = bkFlat
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 350
+    ExplicitHeight = 333
     object pnlPrincipal: TPanel
       Left = 0
       Top = 100
       Width = 376
-      Height = 160
+      Height = 147
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = 2
-      ExplicitWidth = 398
-      ExplicitHeight = 348
+      ExplicitHeight = 160
       object pnlTitulo: TPanel
         AlignWithMargins = True
         Left = 0
@@ -53,8 +50,6 @@ object frmMensagem: TfrmMensagem
         Color = clWhite
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 97
-        ExplicitWidth = 398
         object lblTitulo: TLabel
           Left = 0
           Top = 0
@@ -82,7 +77,7 @@ object frmMensagem: TfrmMensagem
         Left = 0
         Top = 56
         Width = 376
-        Height = 104
+        Height = 91
         Margins.Left = 0
         Margins.Top = 10
         Margins.Right = 0
@@ -92,14 +87,12 @@ object frmMensagem: TfrmMensagem
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
-        ExplicitTop = 138
-        ExplicitWidth = 390
-        ExplicitHeight = 126
+        ExplicitHeight = 104
         object mmoMensagem: TMemo
           Left = 0
           Top = 0
           Width = 376
-          Height = 104
+          Height = 91
           TabStop = False
           Align = alClient
           Alignment = taCenter
@@ -116,7 +109,7 @@ object frmMensagem: TfrmMensagem
           ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          ExplicitHeight = 90
+          ExplicitHeight = 104
         end
       end
     end
@@ -126,14 +119,11 @@ object frmMensagem: TfrmMensagem
       Width = 376
       Height = 100
       Align = alTop
-      ActiveCard = cardInformacao
+      ActiveCard = cardEscolha
       BevelOuter = bvNone
       Color = clWhite
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 378
       object cardErro: TCard
         Left = 0
         Top = 0
@@ -144,8 +134,6 @@ object frmMensagem: TfrmMensagem
         Color = 6968319
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object pnlImgErro: TPanel
           Left = 0
           Top = 0
@@ -156,9 +144,6 @@ object frmMensagem: TfrmMensagem
           Color = 6968319
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 8
-          ExplicitWidth = 298
-          ExplicitHeight = 97
           object imgErro: TImage
             Left = 0
             Top = 0
@@ -250,8 +235,6 @@ object frmMensagem: TfrmMensagem
         Caption = 'cardInformacao'
         CardIndex = 1
         TabOrder = 1
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object pnlImgInformacao: TPanel
           Left = 0
           Top = 0
@@ -262,9 +245,6 @@ object frmMensagem: TfrmMensagem
           Color = 6968319
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 8
-          ExplicitWidth = 298
-          ExplicitHeight = 97
           object imgInformacao: TImage
             Left = 0
             Top = 0
@@ -362,8 +342,6 @@ object frmMensagem: TfrmMensagem
         Caption = 'cardAviso'
         CardIndex = 2
         TabOrder = 2
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object pnlImgAviso: TPanel
           Left = 0
           Top = 0
@@ -374,9 +352,6 @@ object frmMensagem: TfrmMensagem
           Color = 6968319
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 8
-          ExplicitWidth = 298
-          ExplicitHeight = 97
           object imgAviso: TImage
             Left = 0
             Top = 0
@@ -464,8 +439,6 @@ object frmMensagem: TfrmMensagem
         Caption = 'cardSucesso'
         CardIndex = 3
         TabOrder = 3
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object pnlImgSucesso: TPanel
           Left = 0
           Top = 0
@@ -476,9 +449,6 @@ object frmMensagem: TfrmMensagem
           Color = 6968319
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 8
-          ExplicitWidth = 298
-          ExplicitHeight = 97
           object imgSucesso: TImage
             Left = 0
             Top = 0
@@ -567,19 +537,150 @@ object frmMensagem: TfrmMensagem
           end
         end
       end
+      object cardEscolha: TCard
+        Left = 0
+        Top = 0
+        Width = 376
+        Height = 100
+        Caption = 'cardEscolha'
+        CardIndex = 4
+        TabOrder = 4
+        ExplicitWidth = 185
+        ExplicitHeight = 41
+        object pnlImgEscolha: TPanel
+          Left = 0
+          Top = 0
+          Width = 376
+          Height = 100
+          Align = alClient
+          BevelOuter = bvNone
+          Color = 6968319
+          ParentBackground = False
+          TabOrder = 0
+          object imgEscolha: TImage
+            Left = 0
+            Top = 0
+            Width = 376
+            Height = 100
+            Align = alClient
+            Center = True
+            Picture.Data = {
+              0954506E67496D61676589504E470D0A1A0A0000000D49484452000000400000
+              00400806000000AA6971DE0000000473424954080808087C0864880000000970
+              485973000001D8000001D801FA5CA6720000001974455874536F667477617265
+              007777772E696E6B73636170652E6F72679BEE3C1A00000BB24944415478DAED
+              5B0B7454C519FE67EEE601487895375AAA20F29287C52221E551A8850202C5A0
+              0451B040B1E8F10126013C040F64373CC442EB290541202194422D4F41791412
+              90F2B070E4A89440511403F20A02219BBD33FDE6EE4DB29BBD9BEC6E169A08FF
+              3973EEDC7BE7F1FFDFFCF3CF3F73FFCBA84AD09C069AE61A2404EBC7986C41C4
+              1AE2611DA4F38CB13352D2A78CE9EB75DDB99328E566302DB36059C994D94D44
+              21F52326DB08494D18032392E5E2FA9564F240A4A6ED8867DDF2C323F8EC0738
+              1733918947E20154C883487384C89F0F206E8415807457763F92721AAA3C564E
+              BD1B4CD25A5DD7534655EBF1DFD0044FE19C47CF40E675A4488F175730DA0701
+              F639B0A004AC038DB80FCF1E41DEE651EE2CE772B4CB95FC6185015829F73466
+              2EB612457F11A4144ED4999D63EB363D85311178B5B49A289E0ED51E643E7021
+              AD1642BC43D4E2009441B7AAA369A23FFA7B0D6074F1A8374988A43F840C40A6
+              735F279DE91B50AC5990C2179324DA12652B1C1ECF7A5D2BBFF4A208C62E7F88
+              11EE6930C7E8B0AE8B114453FE13687F9AE68807088B90AD6D72001092E7050D
+              4066FEC7CD759BBE1FD986A10AEF411F44DACE0E8C6756A357429CA7817139CE
+              643C43888231980ECEE0BBB337E79CED40E67E241D400ED4F5A40F020660913C
+              1451DD75F3105E3E1C06E1CD8E584A4244EC0C7FEF31720331721B0CD1A5DC24
+              65C11008EF0ABD47C3806623D308E9821084D523292F2000D29DD92FE3CDFC70
+              096F084554403A6FF74C74B71CDFB76B34CE4F1D45A62DD225CCF707A1F6172B
+              DAA7A6D98748C9FE6EDEA6C21E4C2D178005724B545D57CC37C8D60B27004667
+              4C2E4BB0C58DF165D4F114463FD3BCFD1D185D14BE3E1DCAA6F445F68610514D
+              895EB952260019AEAC2781DA9A503A93700CB62D3C4B2EA7A45F4F6AA68C5869
+              BA1E692B6C54DA2082C975283B14D9AB42DC6CE8EBCCCC6EC4B9BE0D7CE54A19
+              35DC5B084737CE693932BB01DC6F7DC19D3D404AB1D11C8011BA9E9CE9D577E9
+              0A2B9D599958829E0A45F8A52F9CA4DDCB728DFBE9591DE881476B5A0C891C3A
+              D216F77EC98305519CDFF80E195578058478D65708473F68C816B7107448D7A3
+              FABA41308457C62D46812B44624DD58177ED45119C5F564CD5C5BBBFA28C976C
+              3E00A417EEC592235B5644F8666DAAD3F4EC8E1455C3CA7993B34646C44DF318
+              C10E10E2885B383646D71397F9D6311C233572F145201089E952F24C537881BA
+              CFA1EE4A2BFE18B36FC4FB01C89E04C02DFC02B04BEEB27DE38A28200BB733FF
+              AA0B029EA3767D6A53B3B635FC0ADFB475754ADAD68E6A358C243FF4FEC888EE
+              434B4637B53F04D9ACF242F09E70FE765B575386F224549D25947A214CE096FB
+              EB9073C7025C5E54620080EA7E014897FB63C8E5CAB36A64CDB4D3B469CED754
+              2DC6469336B6A1965D6342115ED15600D0AF0480B4D158F696BA01D0B06E4F2E
+              C37D4EB13116BD091AF0B887082F42ADFF58568700E0555CE6B9FB88AAE36943
+              BC00C8905975A48B5DB26AE4DF9B2FD1DBC33E37843640D8D086F62C3F1FACF0
+              AAC38F1222BAFFB20400FBD3306EABDCCC092C83533EF35FDB6BCE17B3264464
+              1FA2572FF9AB0507EB0DE8EA9BEE3E6E56F334B2163620FB2AB90D920F65AD38
+              474BC6E71820700D8D997E5DA0C22B928CDE7DC6D6DDC35ADB7BC26BDBE56654
+              F6C506667B19C26F357983DAD30118C6AE86105E86D10A0007F6113401E922A6
+              C08F4A0D486900F61E069B9DFD0990B512208C7383A0A8492BB7F0B51B972FBC
+              49C998028E92DBD4FAB070E74D7892E0B7A7F956B1DF0F908E9408AFE67C7E06
+              0C63069518C63D70777B587588554481D5C5AA8C9506D871492A4B0205C2D209
+              39D4F4A16A34797360235FDCA1649D1222638F941AA12F70690506F783C1C74A
+              D7B1D9D27A092177928FC14BB1798080D14DACEFBB0CA63581667D6DCA3A131A
+              F046D90038F776411B07CA13E4C6159DA2EEE1A4D982385361742A418B6D0121
+              BC98C41C9D8DD19F4C861920685FD2518B517C023BC30BB0117BBDDFACD134ED
+              643CDE7D4A34F558E97A9CDB53D0F174321A673F234A3CE0CD9205A517666D0F
+              61FF5FBEFC528E4F888CFB8BEF9BB456182565FC3854151E5FD2AFC2D3A3F220
+              C50964EE413A8AD1EFE8C39355B50CE7BE472513FB14F065357FF14C01E59D73
+              52A396D5A87A2D1B9543C7AFDBA2DB8F673F2DB47A092D580C2D28328E61D80F
+              A470C6A2D69B0E90B211FDADB6C47EF537A3302B51127358BD3B73EC3A2D7B21
+              8772FEF5BD9B79C0D4EBF9C6343CB53945D7B4C40C6E2AEB3A2A2AF618F925C3
+              181E27F761A7131AD10F2BC2CE50C5875D790B9757541E5AB51E5A35D8AA9C5F
+              00E09CB00C3D7B11D6ADB19ECFF3720B29B9F32774EDA2EF40761E588F5E5EDB
+              BAF4E37CCEE4F011B6B88DE5316D9E09A8EDAB52A7028CDE046BD7B82C4A89E6
+              3C6A8987C7780A1E662C3CCCDCA00028222C8B534D27C2708FD7CDF892D6A79E
+              2982C90E26B360B82643C57AA927B30E77A27BDB15BBCAE739B1C12322623F0E
+              947D3846CF01FBA545BC2940703F05C6EB78F975D30663E0D42AF690F9E81C56
+              8FEE587973FCD509C884BBCF06C5DBC8FE7CDE139FD1D1ADCAE962C7B0ECB477
+              97308C985ACA68ECE2961437AA612123F60ED9C48C04167739B8112CD6040542
+              91D3E20208DBB178FC0360EF47896FE10CA2DD2BD83ACBE67090D47E7F0852FB
+              62C118EDD375092D483E5D565F417D175859B8AF5BF2C307D79C3D9EDF140CFE
+              13F3AA97FB4D6A3DCCDF0B2AD7E3D9061BC62D7D60E2D3ACC79960DAF625B57E
+              D35C08A8D6782D888A1721D63C21F2E70472A416F48711C61CBBD4A9AD3F0040
+              2FC1822FAC98F09E649CED4D44466D805AFB29E4544E949A2EF0F5DF85E0019C
+              405719003C29AD093868A96902AACF945BFC9DAE13DC680E2768F2F5505AAC62
+              00849FEE02701780BB00DC05E02E00E107E026FCF798C8B2CEE92A0BDD0A00D4
+              67B5064811487059E57C210AE6C139092246A06A036045ABDD4755B203EA5EC7
+              86658B10B677E0BC9CFF2102A0461A36809D32BFF5B7F5D3542EE76C143637EA
+              64F73E54FB163BB7554453BEA88200D8EB4098A2F9BE1046F02577765663CEB5
+              D3E48EF371A2CE0ED4550117FE4E9D757536284472583FCDDF06008C23AD554A
+              C5318A03B1053DE5F15C9D278C0440135DAEC41DEACB009EFD89DCE7F48A94C6
+              A8C30A15C8A0CE1C24CA3E8EB21F55290082A3B93FE6DC850D8CFA56270700B0
+              83D8F575C4AE4F7D178C41DB1BD1F6A0D0DABEC500689A1D82B31E150340D1FC
+              DA447918FD94AB454FA01930967238B2399846417DA1BEE50098DFE85391358E
+              962B0E802F71EE50A740A3D1FA97B003CD2B0D009A9636144BD7DFC8E3B3F91D
+              04C09C1A9CEBEA50511929F55555A96C833B06008C7E02463FDD28CC2801EBF6
+              D88A1BC12A0400985A82CBF34857E0E3D7632C7AC71D0500963D25706FC6D85E
+              5D4FEC8EFBB5B8FF0D0058070086DD090018EB3E6372B7AE27F7249AD994F388
+              27852884519CF6CD0F1E00CEEDE9E667269F08AB70130050DFFA47209D405F0F
+              561600B0F6B36452016142D40F4708AB5F669863AB0A80423AA8EB498F560A00
+              6C367B1F2158915F1ED630D6D2044FF02BE07C2FD8CA14227144A500C08CB454
+              919CB54AECC0AD207B0B6C824E9837D81126CDAD24001873F3CFB88C27238445
+              EF60158A5251F20E652B2F5CEE3603006FF027F006D55F1B362C7FDBB1FCF50D
+              2F1B29D5398F3E894C2377C85B52970A37195E00BC1C2215753D0C53615DB898
+              F030B49611DD950200A2B7EA72EE547BF82648D7B08FEF897DFCE18A320023DB
+              1B4656FDDDA5A9E047385B5D7D43DD2A0500C55BE24DE4DE15E682F1DE44899F
+              87DEBDBD0B0C9F125EFDE0740373BFCBED9AFB2101A0085341455D2F306FAF61
+              D47E8F39BB22D87634CD0E779ABD47EE103615FA9A807656DF4EE14302C00461
+              0A2E333DEA3BB06C2507DEC2AC769C6B2A5A54457EA8BFBA2640F8C5B75BF890
+              015064C6F1A8905515D676090004FC8F51A9DF5846C3E8BDF7FF10BE42002882
+              26A8187C158B7F1500D40A0500D811CCFBC4435514803415C4F41A1967054975
+              0207C0EB2F9147885EFFA44A02602E61F007D81AF8EEE303AF694485AAD8C1EF
+              85B8191BE89FDEB782FE07A3C8A38C8024DDFB0000000049454E44AE426082}
+            ExplicitLeft = 144
+            ExplicitTop = 8
+            ExplicitWidth = 105
+            ExplicitHeight = 105
+          end
+        end
+      end
     end
     object cpnlBotao: TCardPanel
       Left = 0
-      Top = 260
+      Top = 247
       Width = 376
       Height = 69
       Align = alBottom
-      ActiveCard = cardBotaoContinue
+      ActiveCard = cardBotaoEscolha
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 1
-      ExplicitTop = 280
-      ExplicitWidth = 378
+      ExplicitTop = 260
       object cardBotaoContinue: TCard
         Left = 0
         Top = 0
@@ -588,8 +689,6 @@ object frmMensagem: TfrmMensagem
         Caption = 'cardBotaoContinue'
         CardIndex = 0
         TabOrder = 0
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object pnlPrincipalBotao: TPanel
           Left = 0
           Top = 0
@@ -600,9 +699,6 @@ object frmMensagem: TfrmMensagem
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 109
-          ExplicitWidth = 281
-          ExplicitHeight = 74
           object pnlFundoBtn: TPanel
             AlignWithMargins = True
             Left = 100
@@ -629,8 +725,82 @@ object frmMensagem: TfrmMensagem
             OnClick = pnlFundoBtnClick
             OnMouseEnter = pnlFundoBtnMouseEnter
             OnMouseLeave = pnlFundoBtnMouseLeave
-            ExplicitWidth = 98
-            ExplicitHeight = 178
+          end
+        end
+      end
+      object cardBotaoEscolha: TCard
+        Left = 0
+        Top = 0
+        Width = 376
+        Height = 69
+        Caption = 'cardBotaoEscolha'
+        CardIndex = 1
+        TabOrder = 1
+        ExplicitWidth = 185
+        ExplicitHeight = 41
+        object pnlBotaoOp: TPanel
+          Left = 0
+          Top = 0
+          Width = 376
+          Height = 69
+          Align = alClient
+          BevelOuter = bvNone
+          Color = clWhite
+          ParentBackground = False
+          TabOrder = 0
+          object pnlBtnSim: TPanel
+            AlignWithMargins = True
+            Left = 20
+            Top = 10
+            Width = 160
+            Height = 49
+            Cursor = crHandPoint
+            Margins.Left = 20
+            Margins.Top = 10
+            Margins.Right = 5
+            Margins.Bottom = 10
+            Align = alLeft
+            BevelOuter = bvNone
+            Caption = 'Sim'
+            Color = 7910168
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -19
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentBackground = False
+            ParentFont = False
+            TabOrder = 0
+            OnClick = pnlBtnSimClick
+            OnMouseEnter = pnlBtnSimMouseEnter
+            OnMouseLeave = pnlBtnSimMouseLeave
+          end
+          object pnlBtnNao: TPanel
+            AlignWithMargins = True
+            Left = 190
+            Top = 10
+            Width = 160
+            Height = 49
+            Cursor = crHandPoint
+            Margins.Left = 5
+            Margins.Top = 10
+            Margins.Right = 5
+            Margins.Bottom = 10
+            Align = alLeft
+            Caption = 'N'#227'o'
+            Color = 6968319
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWhite
+            Font.Height = -19
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentBackground = False
+            ParentFont = False
+            TabOrder = 1
+            OnClick = pnlBtnNaoClick
+            OnMouseEnter = pnlBtnNaoMouseEnter
+            OnMouseLeave = pnlBtnNaoMouseLeave
+            ExplicitLeft = 205
           end
         end
       end
