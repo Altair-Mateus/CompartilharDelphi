@@ -60,6 +60,7 @@ type
     procedure CarregaTelaSucesso;
     procedure CarregaTelaInformacao;
     procedure CarregaTelaEscolha;
+    procedure IniciaTelaMensagem;
   public
     class procedure TelaMensagem(pTitulo: String; pDescricao: String; pTipoMensagem: TTelaMensagem);
     class function TelaEscolha(pTitulo: String; pDescricao: String; pTipoMensagem: TTelaMensagem) : TModalResult;
@@ -76,40 +77,7 @@ implementation
 
 procedure TfrmMensagem.FormShow(Sender: TObject);
 begin
-
-  case FTipoMensagem of
-    tmErro:
-      begin
-        FCorDestaque := $006A53FF;
-        FCorMouseEnter := $004A2FFF;
-        CarregaTelaErro;
-      end;
-    tmSucesso:
-      begin
-        FCorDestaque := $0078b318;
-        FCorMouseEnter := $006a9d17;
-        CarregaTelaSucesso;
-      end;
-    tmAviso:
-      begin
-        FCorDestaque := $005bddff;
-        FCorMouseEnter := $0036d5ff;
-        CarregaTelaAviso;
-      end;
-    tmInfo:
-      begin
-        FCorDestaque := $00ff7152;
-        FCorMouseEnter := $00ff5e3b;
-        CarregaTelaInformacao;
-      end;
-    tmEscolha:
-      begin
-        FCorDestaque := clBlack;
-        CarregaTelaEscolha;
-      end;
-  end;
-
-  PreparaTela;
+  IniciaTelaMensagem;
 end;
 
 procedure TfrmMensagem.pnlBtnNaoClick(Sender: TObject);
@@ -238,6 +206,42 @@ begin
     lFormulario.Free;
   end;
 
+end;
+
+procedure TfrmMensagem.IniciaTelaMensagem;
+begin
+  case FTipoMensagem of
+    tmErro:
+      begin
+        FCorDestaque := $6A53FF;
+        FCorMouseEnter := $4A2FFF;
+        CarregaTelaErro;
+      end;
+    tmSucesso:
+      begin
+        FCorDestaque := $78B318;
+        FCorMouseEnter := $6A9D17;
+        CarregaTelaSucesso;
+      end;
+    tmAviso:
+      begin
+        FCorDestaque := $5BDDFF;
+        FCorMouseEnter := $36D5FF;
+        CarregaTelaAviso;
+      end;
+    tmInfo:
+      begin
+        FCorDestaque := $FF7152;
+        FCorMouseEnter := $FF5E3B;
+        CarregaTelaInformacao;
+      end;
+    tmEscolha:
+      begin
+        FCorDestaque := clBlack;
+        CarregaTelaEscolha;
+      end;
+  end;
+  PreparaTela;
 end;
 
 procedure TfrmMensagem.CarregaTelaSucesso;

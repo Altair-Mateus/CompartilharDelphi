@@ -25,7 +25,6 @@ object frmMensagem: TfrmMensagem
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 333
     object pnlPrincipal: TPanel
       Left = 0
       Top = 100
@@ -34,7 +33,6 @@ object frmMensagem: TfrmMensagem
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 160
       object pnlTitulo: TPanel
         AlignWithMargins = True
         Left = 0
@@ -87,12 +85,14 @@ object frmMensagem: TfrmMensagem
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
-        ExplicitHeight = 104
         object mmoMensagem: TMemo
-          Left = 0
-          Top = 0
-          Width = 376
-          Height = 91
+          AlignWithMargins = True
+          Left = 5
+          Top = 3
+          Width = 366
+          Height = 85
+          Margins.Left = 5
+          Margins.Right = 5
           TabStop = False
           Align = alClient
           Alignment = taCenter
@@ -109,7 +109,6 @@ object frmMensagem: TfrmMensagem
           ParentFont = False
           ReadOnly = True
           TabOrder = 0
-          ExplicitHeight = 104
         end
       end
     end
@@ -545,8 +544,6 @@ object frmMensagem: TfrmMensagem
         Caption = 'cardEscolha'
         CardIndex = 4
         TabOrder = 4
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object pnlImgEscolha: TPanel
           Left = 0
           Top = 0
@@ -680,7 +677,6 @@ object frmMensagem: TfrmMensagem
       ActiveCard = cardBotaoEscolha
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 260
       object cardBotaoContinue: TCard
         Left = 0
         Top = 0
@@ -736,8 +732,6 @@ object frmMensagem: TfrmMensagem
         Caption = 'cardBotaoEscolha'
         CardIndex = 1
         TabOrder = 1
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object pnlBotaoOp: TPanel
           Left = 0
           Top = 0
@@ -800,7 +794,6 @@ object frmMensagem: TfrmMensagem
             OnClick = pnlBtnNaoClick
             OnMouseEnter = pnlBtnNaoMouseEnter
             OnMouseLeave = pnlBtnNaoMouseLeave
-            ExplicitLeft = 205
           end
         end
       end
