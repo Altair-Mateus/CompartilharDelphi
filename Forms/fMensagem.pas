@@ -146,6 +146,7 @@ begin
   cpnlImg.ActiveCard := cardAviso;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgAviso.Color := FCorDestaque;
+  pnlFundoBtn.SetFocus;
 end;
 
 procedure TfrmMensagem.CarregaTelaErro;
@@ -153,6 +154,7 @@ begin
   cpnlImg.ActiveCard := cardErro;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgErro.Color := FCorDestaque;
+  pnlFundoBtn.SetFocus;
 end;
 
 procedure TfrmMensagem.CarregaTelaEscolha;
@@ -167,6 +169,7 @@ begin
   cpnlImg.ActiveCard := cardInformacao;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgInformacao.Color := FCorDestaque;
+  pnlFundoBtn.SetFocus;
 end;
 
 class procedure TfrmMensagem.TelaMensagem(pTitulo, pDescricao: String;
@@ -249,6 +252,7 @@ begin
   cpnlImg.ActiveCard := cardSucesso;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgSucesso.Color := FCorDestaque;
+  pnlFundoBtn.SetFocus;
 end;
 
 end.

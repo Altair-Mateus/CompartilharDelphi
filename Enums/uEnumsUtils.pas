@@ -1,16 +1,18 @@
-
 unit uEnumsUtils;
 
 interface
+
 type
 
-    TOperacaoCadastro = (ocIncluir, ocAlterar, ocVisualizar);
+  TOperacaoCadastro = (ocIncluir, ocAlterar, ocVisualizar);
 
-    TTipoLancamento = (tlCr, tlCp, tlCx, tlTodos);
+  TTipoLancamento = (tlCr, tlCp, tlCx, tlTodos);
 
-    TStatusCadastro = (scInativo, scAtivo);
+  TStatusCadastro = (scInativo, scAtivo);
 
-    TTelaMensagem = (tmErro, tmSucesso, tmAviso, tmInfo, tmEscolha);
+  TTelaMensagem = (tmErro, tmSucesso, tmAviso, tmInfo, tmEscolha);
+
+  TStatusConta = (sctTodas, sctPaga, sctAberta, sctCancelada);
 
 implementation
 

@@ -674,7 +674,7 @@ object frmMensagem: TfrmMensagem
       Width = 376
       Height = 69
       Align = alBottom
-      ActiveCard = cardBotaoEscolha
+      ActiveCard = cardBotaoContinue
       BevelOuter = bvNone
       TabOrder = 2
       object cardBotaoContinue: TCard
