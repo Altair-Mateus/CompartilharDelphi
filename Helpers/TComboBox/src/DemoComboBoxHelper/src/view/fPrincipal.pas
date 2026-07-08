@@ -31,18 +31,27 @@ type
     cbxComEfeitos: TComboBox;
     btnAlimentar: TButton;
     btnLimpar: TButton;
-    Button1: TButton;
+    btnAlimentaDefaulr: TButton;
+    btnAlimentaComEnum: TButton;
+    btnPuxaEnum: TButton;
+    btnSetEnum: TButton;
     procedure cbxComEfeitosDropDown(Sender: TObject);
     procedure cbxComEfeitosMouseEnter(Sender: TObject);
     procedure btnAlimentarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure btnAlimentaDefaulrClick(Sender: TObject);
     procedure btnLinkedinClick(Sender: TObject);
     procedure btnGithubClick(Sender: TObject);
+    procedure btnAlimentaComEnumClick(Sender: TObject);
+    procedure btnPuxaEnumClick(Sender: TObject);
+    procedure btnSetEnumClick(Sender: TObject);
   private
     procedure AlimentaCombo;
     procedure AlimentaComboComDefault;
+    procedure AlimentaComEnum;
+    procedure PuxarEnumCombo;
+    procedure SelecionarEnumUser;
     procedure LimparCombo;
   public
     { Public declarations }
@@ -57,7 +66,12 @@ implementation
 
 
 uses
-  uComboBoxHelper;
+  uComboBoxHelper,
+  uEnums,
+  System.Math,
+  uEnumsHelper,
+  uUsuarioExemplo,
+  System.TypInfo;
 
 procedure TfrmPrincipal.AlimentaCombo;
 begin
@@ -87,6 +101,36 @@ begin
 
 end;
 
+procedure TfrmPrincipal.AlimentaComEnum;
+var
+  lTipoUsuario: TTipoUsuario;
+begin
+
+  cbxComEfeitos.Items.BeginUpdate;
+  try
+
+    cbxComEfeitos.Items.Clear;
+    cbxComEfeitos.Items.AddObject('Selecione', TObject(NativeInt(tpuNaoIdentificado)));
+    for lTipoUsuario := tpuBalcao to High(TTipoUsuario) do
+    begin
+      cbxComEfeitos.Items.AddObject(
+        lTipoUsuario.Descricao,
+        TObject(NativeInt(lTipoUsuario))
+        )
+    end;
+
+  finally
+    cbxComEfeitos.Items.EndUpdate;
+    cbxComEfeitos.ItemIndex := IfThen((cbxComEfeitos.Items.Count > 0), 1, 0);
+  end;
+
+end;
+
+procedure TfrmPrincipal.btnAlimentaComEnumClick(Sender: TObject);
+begin
+  AlimentaComEnum;
+end;
+
 procedure TfrmPrincipal.btnAlimentarClick(Sender: TObject);
 begin
   AlimentaCombo;
@@ -110,9 +154,19 @@ begin
     SW_SHOWNORMAL);
 end;
 
-procedure TfrmPrincipal.Button1Click(Sender: TObject);
+procedure TfrmPrincipal.btnPuxaEnumClick(Sender: TObject);
+begin
+  PuxarEnumCombo;
+end;
+
+procedure TfrmPrincipal.btnAlimentaDefaulrClick(Sender: TObject);
 begin
   AlimentaComboComDefault;
+end;
+
+procedure TfrmPrincipal.btnSetEnumClick(Sender: TObject);
+begin
+  SelecionarEnumUser;
 end;
 
 procedure TfrmPrincipal.cbxComEfeitosDropDown(Sender: TObject);
@@ -133,6 +187,49 @@ end;
 procedure TfrmPrincipal.LimparCombo;
 begin
   cbxComEfeitos.ClearAndReset;
+end;
+
+procedure TfrmPrincipal.PuxarEnumCombo;
+var
+  lUsuario: TUsuarioExemplo;
+  lTipoUsuario: TTipoUsuario;
+begin
+  lUsuario := TUsuarioExemplo.Create;
+  try
+
+    lUsuario.Nome := 'Altair Mateus';
+
+    // Puxa o Enum selecionado do combo
+    if (cbxComEfeitos.TryGetEnum<TTipoUsuario>(lTipoUsuario)) then
+    begin
+      lUsuario.Tipo := lTipoUsuario;
+      ShowMessage(GetEnumName(TypeInfo(TTipoUsuario), Ord(lTipoUsuario)));
+    end;
+    lUsuario.Salvar;
+
+  finally
+    lUsuario.Free;
+  end;
+end;
+
+procedure TfrmPrincipal.SelecionarEnumUser;
+var
+  lUsuario: TUsuarioExemplo;
+  lTipoUsuario: TTipoUsuario;
+begin
+  lUsuario := TUsuarioExemplo.Create;
+  try
+
+    lUsuario.Nome := 'Altair Mateus';
+    lUsuario.Tipo := tpuGerente;
+
+    // Puxa o Enum da entidade e seleciona o mesmo
+    cbxComEfeitos.TrySetEnum<TTipoUsuario>(lUsuario.Tipo);
+
+  finally
+    lUsuario.Free;
+  end;
+
 end;
 
 end.

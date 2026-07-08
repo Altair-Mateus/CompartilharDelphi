@@ -37,9 +37,16 @@ type
       const pSelectDefault: Boolean = False); overload;
     procedure LoadFromStrings(const pValues: array of string; const pDefaultText: String = '';
       const pSelectDefault: Boolean = False); overload;
+
+    function TryGetEnum<T>(out pOutValue: T): Boolean;
+    function TrySetEnum<T>(const pValue: T): Boolean;
   end;
 
 implementation
+
+uses
+  System.Rtti,
+  System.TypInfo;
 
 { TComboBoxHelper }
 
@@ -130,6 +137,58 @@ begin
 
   // Força o aparecimento imediato da dica na posição atual do mouse
   Application.ActivateHint(Mouse.CursorPos);
+end;
+
+function TComboBoxHelper.TryGetEnum<T>(out pOutValue: T): Boolean;
+begin
+  Result := False;
+
+  pOutValue := Default (T);
+
+  if (ItemIndex < 0) then
+    Exit;
+
+  if (Items.Objects[ItemIndex] = nil) then
+    Exit;
+
+  if (PTypeInfo(TypeInfo(T))^.Kind <> tkEnumeration) then
+    Exit;
+
+  try
+    pOutValue := TValue.FromOrdinal(TypeInfo(T), NativeInt(Items.Objects[ItemIndex])).AsType<T>;
+    Result := True;
+  except
+    on E: Exception do
+    begin
+      Result := False;
+    end;
+  end;
+end;
+
+function TComboBoxHelper.TrySetEnum<T>(const pValue: T): Boolean;
+var
+  I: Integer;
+  lOrdValue: NativeInt;
+begin
+
+  Result := False;
+
+  if (PTypeInfo(TypeInfo(T))^.Kind <> tkEnumeration) then
+    Exit;
+
+  lOrdValue := TValue.From<T>(pValue).AsOrdinal;
+
+  for I := 0 to Items.Count - 1 do
+  begin
+    if (NativeInt(Items.Objects[I]) = lOrdValue) then
+    begin
+      ItemIndex := I;
+      Exit(True);
+    end;
+  end;
+
+  ItemIndex := -1;
+
 end;
 
 procedure TComboBoxHelper.LoadFromStrings(const pStrings: TStrings; const pDefaultText: String = '';

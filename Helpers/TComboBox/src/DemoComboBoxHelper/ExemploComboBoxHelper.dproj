@@ -128,6 +128,9 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Classes\uComboBoxHelper.pas"/>
+        <DCCReference Include="src\model\uUsuarioExemplo.pas"/>
+        <DCCReference Include="src\types\uEnums.pas"/>
+        <DCCReference Include="src\types\uEnumsHelper.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

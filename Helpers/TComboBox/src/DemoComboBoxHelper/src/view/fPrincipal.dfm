@@ -128,8 +128,8 @@ object frmPrincipal: TfrmPrincipal
       ParentBackground = False
       TabOrder = 2
       object lblCbxSemEfeitos: TLabel
-        Left = 102
-        Top = 48
+        Left = 94
+        Top = 24
         Width = 142
         Height = 18
         Caption = 'Combo Sem Efeitos'
@@ -141,8 +141,8 @@ object frmPrincipal: TfrmPrincipal
         ParentFont = False
       end
       object lblCbxComEfeitos: TLabel
-        Left = 326
-        Top = 48
+        Left = 318
+        Top = 24
         Width = 143
         Height = 18
         Caption = 'Combo Com Efeitos'
@@ -154,8 +154,8 @@ object frmPrincipal: TfrmPrincipal
         ParentFont = False
       end
       object cbxSemEfeito: TComboBox
-        Left = 102
-        Top = 78
+        Left = 94
+        Top = 54
         Width = 185
         Height = 26
         Style = csDropDownList
@@ -174,8 +174,8 @@ object frmPrincipal: TfrmPrincipal
           'Op'#231#227'o intermedi'#225'ria')
       end
       object cbxComEfeitos: TComboBox
-        Left = 326
-        Top = 78
+        Left = 318
+        Top = 54
         Width = 185
         Height = 26
         Style = csDropDownList
@@ -190,8 +190,8 @@ object frmPrincipal: TfrmPrincipal
         OnMouseEnter = cbxComEfeitosMouseEnter
       end
       object btnAlimentar: TButton
-        Left = 326
-        Top = 128
+        Left = 318
+        Top = 104
         Width = 75
         Height = 25
         Caption = 'Alimentar'
@@ -199,22 +199,49 @@ object frmPrincipal: TfrmPrincipal
         OnClick = btnAlimentarClick
       end
       object btnLimpar: TButton
-        Left = 436
-        Top = 128
+        Left = 428
+        Top = 104
         Width = 75
         Height = 25
         Caption = 'Limpar'
         TabOrder = 3
         OnClick = btnLimparClick
       end
-      object Button1: TButton
-        Left = 326
-        Top = 168
+      object btnAlimentaDefaulr: TButton
+        Left = 318
+        Top = 144
         Width = 185
         Height = 25
         Caption = 'Alimenta com Default'
         TabOrder = 4
-        OnClick = Button1Click
+        OnClick = btnAlimentaDefaulrClick
+      end
+      object btnAlimentaComEnum: TButton
+        Left = 318
+        Top = 184
+        Width = 185
+        Height = 25
+        Caption = 'Alementa com Enum'
+        TabOrder = 5
+        OnClick = btnAlimentaComEnumClick
+      end
+      object btnPuxaEnum: TButton
+        Left = 318
+        Top = 232
+        Width = 75
+        Height = 25
+        Caption = 'GetEnum'
+        TabOrder = 6
+        OnClick = btnPuxaEnumClick
+      end
+      object btnSetEnum: TButton
+        Left = 428
+        Top = 232
+        Width = 75
+        Height = 25
+        Caption = 'SetEnum'
+        TabOrder = 7
+        OnClick = btnSetEnumClick
       end
     end
   end
