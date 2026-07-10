@@ -11,7 +11,9 @@ object frmMensagem: TfrmMensagem
   Font.Height = -13
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   Position = poOwnerFormCenter
+  OnKeyPress = FormKeyPress
   OnShow = FormShow
   TextHeight = 16
   object pnlContainer: TPanel
@@ -118,7 +120,7 @@ object frmMensagem: TfrmMensagem
       Width = 376
       Height = 100
       Align = alTop
-      ActiveCard = cardEscolha
+      ActiveCard = cardAviso
       BevelOuter = bvNone
       Color = clWhite
       ParentBackground = False
@@ -674,7 +676,7 @@ object frmMensagem: TfrmMensagem
       Width = 376
       Height = 69
       Align = alBottom
-      ActiveCard = cardBotaoContinue
+      ActiveCard = cardBotaoEscolha
       BevelOuter = bvNone
       TabOrder = 2
       object cardBotaoContinue: TCard
@@ -718,6 +720,7 @@ object frmMensagem: TfrmMensagem
             ParentBackground = False
             ParentFont = False
             TabOrder = 0
+            TabStop = True
             OnClick = pnlFundoBtnClick
             OnMouseEnter = pnlFundoBtnMouseEnter
             OnMouseLeave = pnlFundoBtnMouseLeave

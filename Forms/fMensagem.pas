@@ -3,9 +3,21 @@ unit fMensagem;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
-  Vcl.ExtCtrls, Vcl.ComCtrls, uEnumsUtils, Vcl.WinXPanels;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.StdCtrls,
+  Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls,
+  Vcl.ComCtrls,
+  uEnumsUtils,
+  Vcl.WinXPanels;
 
 type
   TfrmMensagem = class(TForm)
@@ -49,11 +61,13 @@ type
     procedure pnlBtnSimMouseLeave(Sender: TObject);
     procedure pnlBtnNaoMouseEnter(Sender: TObject);
     procedure pnlBtnNaoMouseLeave(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
-    FTipoMensagem: TTelaMensagem;
-    FTitulo, FDescricao : String;
-    FCorDestaque : Integer;
-    FCorMouseEnter : Integer;
+    FTipoTelaMsg: TTelaMensagem;
+    FTitulo, FDescricao: String;
+    FCorDestaque: Integer;
+    FCorMouseEnter: Integer;
+
     procedure PreparaTela;
     procedure CarregaTelaErro;
     procedure CarregaTelaAviso;
@@ -61,9 +75,12 @@ type
     procedure CarregaTelaInformacao;
     procedure CarregaTelaEscolha;
     procedure IniciaTelaMensagem;
+
+    procedure EfeitoSaida;
+    procedure FecharTela;
   public
-    class procedure TelaMensagem(pTitulo: String; pDescricao: String; pTipoMensagem: TTelaMensagem);
-    class function TelaEscolha(pTitulo: String; pDescricao: String; pTipoMensagem: TTelaMensagem) : TModalResult;
+    class procedure TelaMensagem(const pTitulo, pDescricao: String; const pTipoMensagem: TTelaMensagem);
+    class function TelaEscolha(const pTitulo, pDescricao: String; const pTipoMensagem: TTelaMensagem): TModalResult;
   end;
 
 var
@@ -71,9 +88,23 @@ var
 
 implementation
 
+uses
+  System.Math;
+
 {$R *.dfm}
 
 { TfrmMensagem }
+
+procedure TfrmMensagem.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    if not(FTipoTelaMsg = tmEscolha) then
+    begin
+      FecharTela;
+    end;
+  end;
+end;
 
 procedure TfrmMensagem.FormShow(Sender: TObject);
 begin
@@ -83,6 +114,7 @@ end;
 procedure TfrmMensagem.pnlBtnNaoClick(Sender: TObject);
 begin
   ModalResult := mrNo;
+  EfeitoSaida;
 end;
 
 procedure TfrmMensagem.pnlBtnNaoMouseEnter(Sender: TObject);
@@ -100,23 +132,24 @@ end;
 procedure TfrmMensagem.pnlBtnSimClick(Sender: TObject);
 begin
   ModalResult := mrYes;
+  EfeitoSaida;
 end;
 
 procedure TfrmMensagem.pnlBtnSimMouseEnter(Sender: TObject);
 begin
-  pnlBtnSim.Color := $006a9d17;
+  pnlBtnSim.Color := $006A9D17;
   pnlBtnSim.Update;
 end;
 
 procedure TfrmMensagem.pnlBtnSimMouseLeave(Sender: TObject);
 begin
-  pnlBtnSim.Color := $0078b318;
+  pnlBtnSim.Color := $0078B318;
   pnlBtnSim.Update;
 end;
 
 procedure TfrmMensagem.pnlFundoBtnClick(Sender: TObject);
 begin
-  ModalResult := mrOk;
+  FecharTela;
 end;
 
 procedure TfrmMensagem.pnlFundoBtnMouseEnter(Sender: TObject);
@@ -146,7 +179,6 @@ begin
   cpnlImg.ActiveCard := cardAviso;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgAviso.Color := FCorDestaque;
-  pnlFundoBtn.SetFocus;
 end;
 
 procedure TfrmMensagem.CarregaTelaErro;
@@ -154,7 +186,6 @@ begin
   cpnlImg.ActiveCard := cardErro;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgErro.Color := FCorDestaque;
-  pnlFundoBtn.SetFocus;
 end;
 
 procedure TfrmMensagem.CarregaTelaEscolha;
@@ -169,20 +200,18 @@ begin
   cpnlImg.ActiveCard := cardInformacao;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgInformacao.Color := FCorDestaque;
-  pnlFundoBtn.SetFocus;
 end;
 
-class procedure TfrmMensagem.TelaMensagem(pTitulo, pDescricao: String;
-  pTipoMensagem: TTelaMensagem);
+class procedure TfrmMensagem.TelaMensagem(const pTitulo, pDescricao: String; const pTipoMensagem: TTelaMensagem);
 var
-  lFormulario : TfrmMensagem;
+  lFormulario: TfrmMensagem;
 begin
 
   lFormulario := TfrmMensagem.Create(nil);
   try
     lFormulario.FTitulo := pTitulo;
     lFormulario.FDescricao := pDescricao;
-    lFormulario.FTipoMensagem := pTipoMensagem;
+    lFormulario.FTipoTelaMsg := pTipoMensagem;
     lFormulario.ShowModal;
   finally
     lFormulario.Close;
@@ -191,17 +220,19 @@ begin
 
 end;
 
-class function TfrmMensagem.TelaEscolha(pTitulo, pDescricao: String;
-  pTipoMensagem: TTelaMensagem): TModalResult;
+class function TfrmMensagem.TelaEscolha(const pTitulo, pDescricao: String; const pTipoMensagem: TTelaMensagem)
+  : TModalResult;
 var
-  lFormulario : TfrmMensagem;
+  lFormulario: TfrmMensagem;
 begin
+
+  Result := mrNone;
 
   lFormulario := TfrmMensagem.Create(nil);
   try
     lFormulario.FTitulo := pTitulo;
     lFormulario.FDescricao := pDescricao;
-    lFormulario.FTipoMensagem := pTipoMensagem;
+    lFormulario.FTipoTelaMsg := pTipoMensagem;
     lFormulario.ShowModal;
     Result := lFormulario.ModalResult;
   finally
@@ -211,9 +242,15 @@ begin
 
 end;
 
+procedure TfrmMensagem.FecharTela;
+begin
+  ModalResult := mrOk;
+  EfeitoSaida;
+end;
+
 procedure TfrmMensagem.IniciaTelaMensagem;
 begin
-  case FTipoMensagem of
+  case FTipoTelaMsg of
     tmErro:
       begin
         FCorDestaque := $6A53FF;
@@ -252,7 +289,18 @@ begin
   cpnlImg.ActiveCard := cardSucesso;
   cpnlBotao.ActiveCard := cardBotaoContinue;
   pnlImgSucesso.Color := FCorDestaque;
-  pnlFundoBtn.SetFocus;
+end;
+
+procedure TfrmMensagem.EfeitoSaida;
+begin
+  AlphaBlend := True;
+
+  while (AlphaBlendValue > 0) do
+  begin
+    AlphaBlendValue := Max(0, AlphaBlendValue - 10);
+    Application.ProcessMessages;
+    Sleep(5);
+  end;
 end;
 
 end.
